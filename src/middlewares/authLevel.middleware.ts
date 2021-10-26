@@ -5,7 +5,7 @@ const authLevel = (
     level:String
 ) => {
     return (req, res, next) => {
-        if(res.locals.tokenInformation === level){
+        if(res.locals.tokenInformation.position === level){
             next();
         } else {
             next(new HttpException(401, 'Wrong authentication token'));
